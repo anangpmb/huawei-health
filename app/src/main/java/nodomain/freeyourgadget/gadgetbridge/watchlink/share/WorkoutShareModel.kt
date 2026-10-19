@@ -272,8 +272,8 @@ class WorkoutShareModel(
             slow: Float,
             range: Float,
         ) = RoutePoint(
-            x = lonToX(p.location.longitude),
-            y = latToY(p.location.latitude),
+            x = lonToX(p.location?.longitude ?: 0.0),
+            y = latToY(p.location?.latitude ?: 0.0),
             timeFraction = ((p.time.time - startTime) / timeSpan).toFloat().coerceIn(0f, 1f),
             distanceFraction = ((cumulativeMeters - distanceStart) / distanceSpan).toFloat().coerceIn(0f, 1f),
             pace = if (speed > 0f) ((speed - slow) / range).coerceIn(0f, 1f) else 0.5f,
