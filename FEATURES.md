@@ -28,6 +28,7 @@ Cakupan fitur WatchLink untuk Huawei Watch Fit 4 dan jam Huawei/Honor lain yang 
 | Pairing tanpa reset pabrik | Termasuk | Masukkan Huawei account ID (`huid`) saat pairing |
 | Info perangkat & baterai | Termasuk | |
 | Sinkron waktu | Termasuk | |
+| Tombol sinkron manual di toolbar Dashboard | Termasuk | Ikon sinkron; menarik data terbaru dari jam. Workout baru ikut di-upload ke Strava bila auto-upload aktif |
 | Hanya jam Huawei/Honor yang dikenali | Termasuk | Perangkat merek lain dan earbuds (FreeBuds) diabaikan saat scan |
 
 ### Notifikasi

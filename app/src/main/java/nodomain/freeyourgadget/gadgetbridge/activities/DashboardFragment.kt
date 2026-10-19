@@ -51,6 +51,9 @@ import nodomain.freeyourgadget.gadgetbridge.util.DateTimeUtils
 import nodomain.freeyourgadget.gadgetbridge.util.kotlin.getDevice
 import java.util.Calendar
 import java.util.GregorianCalendar
+import android.widget.Toast
+import nodomain.freeyourgadget.gadgetbridge.model.RecordedDataTypes
+import nodomain.freeyourgadget.gadgetbridge.util.GB
 
 /**
  * Hosts the widget grid: date header, calendar/settings menu, and the [RecyclerView] the
@@ -167,6 +170,11 @@ class DashboardFragment : Fragment(), MenuProvider, HeaderShadePage {
 
     override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
         return when (menuItem.itemId) {
+            R.id.dashboard_sync -> {
+                syncNow()
+                true
+            }
+
             R.id.dashboard_show_calendar -> {
                 val intent = Intent(requireActivity(), DashboardCalendarActivity::class.java)
                 intent.putExtra(DashboardCalendarActivity.EXTRA_TIMESTAMP, day.timeInMillis)
@@ -180,6 +188,24 @@ class DashboardFragment : Fragment(), MenuProvider, HeaderShadePage {
             }
 
             else -> false
+        }
+    }
+
+    /**
+     * WatchLink: fetch the latest data from every connected watch, like the device card's
+     * Synchronize action. When the fetch finishes, new workouts go to the enabled online trackers
+     * (e.g. Strava) through the existing auto-upload.
+     */
+    private fun syncNow() {
+        val devices = GBApplication.app().deviceManager.devices
+            .filter { it.isInitialized && it.deviceCoordinator.supportsDataFetching(it) }
+        if (devices.isEmpty()) {
+            GB.toast(requireContext(), getString(R.string.info_no_devices_connected), Toast.LENGTH_SHORT, GB.WARN)
+            return
+        }
+        GB.toast(requireContext(), getString(R.string.busy_task_fetch_activity_data), Toast.LENGTH_SHORT, GB.INFO)
+        for (device in devices) {
+            GBApplication.deviceService(device).onFetchRecordedData(RecordedDataTypes.TYPE_SYNC)
         }
     }
 

@@ -106,6 +106,8 @@ Setup (once):
 
 Behaviour:
 
+- Syncing is manual: tap the sync icon in the Dashboard toolbar (or pull down to refresh). There is no
+  automatic sync on app open by design.
 - After each sync, workouts from the last 14 days that are not on Strava yet are uploaded. A workout that Strava
   already holds is recognised by Strava's duplicate check and recorded, not uploaded again.
 - A name set in WatchLink is pushed to Strava; without one, Strava names the activity itself. A changed GPS

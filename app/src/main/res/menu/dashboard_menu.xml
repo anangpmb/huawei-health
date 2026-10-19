@@ -3,6 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".activities.DashboardFragment">
 
+    <!-- WatchLink: visible manual sync (a finished sync also uploads to Strava when enabled) -->
+    <item
+        android:id="@+id/dashboard_sync"
+        android:icon="@drawable/ic_sync"
+        android:title="@string/controlcenter_fetch_activity_data"
+        app:iconTint="?attr/actionmenu_icon_color"
+        app:showAsAction="always" />
     <item
         android:id="@+id/dashboard_show_calendar"
         android:icon="@drawable/ic_calendar_from"
