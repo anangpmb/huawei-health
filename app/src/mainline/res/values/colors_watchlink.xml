@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WatchLink "Soft" palette: warm cream surfaces, forest/sage green accent, pastel data colours.
+     Flavor resources override main resources of the same name, so upstream's colors.xml stays
+     untouched. Only the light theme is restyled; dark-theme colours are inherited unchanged. -->
+<resources>
+    <!-- Brand -->
+    <color name="primary_light" type="color">#3F7257</color>
+    <color name="primarydark_light" type="color">#2F5D46</color>
+    <color name="accent" type="color">#3F7257</color>
+    <color name="subtab_pill_light" type="color">#DEE9D6</color>
+
+    <!-- Surfaces (light): cream page, warm-white cards -->
+    <color name="window_background_light" type="color">#F5F1E8</color>
+    <color name="surface_container_lowest_light" type="color">#FFFFFF</color>
+    <color name="surface_container_low_light" type="color">#FDFBF6</color>
+    <color name="surface_container_light" type="color">#F9F5EC</color>
+    <color name="surface_container_high_light" type="color">#F1EBDF</color>
+    <color name="surface_container_highest_light" type="color">#E9E2D3</color>
+
+    <!-- Text and lines (light) -->
+    <color name="primarytext_light" type="color">#1D1F1C</color>
+    <color name="on_surface_variant_light" type="color">#6F6A5F</color>
+    <color name="tertiarytext_light" type="color">#CFC8BA</color>
+    <color name="outline_light" type="color">#A39D90</color>
+    <color name="outline_variant_light" type="color">#ECE5D8</color>
+    <color name="row_separator_light" type="color">#EFE9DD</color>
+    <color name="table_header_rule_light" type="color">#E3DCCD</color>
+
+    <!-- Data colours: softened, but dark enough to read as lines on cream -->
+    <color name="chart_heartrate" type="color">#4A90C9</color>
+    <color name="chart_heartrate_fill" type="color">#DCEAF6</color>
+    <color name="chart_heartrate_minimum" type="color">#7FB3D9</color>
+    <color name="chart_heartrate_resting" type="color">#5FA08A</color>
+    <color name="chart_heartrate_maximum" type="color">#E07A7A</color>
+    <color name="chart_line_heart_rate" type="color">#E58A8A</color>
+
+    <color name="chart_deep_sleep_light" type="color">#4E62A6</color>
+    <color name="chart_light_sleep_light" type="color">#9BB7E6</color>
+    <color name="chart_rem_sleep_light" type="color">#D58BC0</color>
+    <color name="chart_awake_sleep_light" type="color">#F3B776</color>
+
+    <color name="chart_activity_light" type="color">#8DB37A</color>
+    <color name="chart_not_worn_light" type="color">#D9D3C7</color>
+
+    <color name="chart_stress_unknown" type="color">#CFC8BA</color>
+    <color name="chart_stress_relaxed" type="color">#8CC2E3</color>
+    <color name="chart_stress_mild" type="color">#A9CB86</color>
+    <color name="chart_stress_moderate" type="color">#F1C66E</color>
+    <color name="chart_stress_high" type="color">#E3897D</color>
+
+    <color name="steps_color" type="color">#6FA88C</color>
+    <color name="calories_color" type="color">#EE9A5B</color>
+    <color name="spo2_color" type="color">#D97A9B</color>
+    <color name="spo2_avg_color_light" type="color">#9A3E62</color>
+    <color name="chart_temperature" type="color">#F0A35E</color>
+    <color name="body_energy_level_color" type="color">#9CC47E</color>
+</resources>

@@ -44,6 +44,7 @@ import java.util.WeakHashMap
 import kotlin.math.abs
 import kotlin.math.ceil
 import kotlin.math.floor
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkFonts
 
 /**
  * Renders a [ChartSpec]. Tap or drag sideways to select an x; with a click listener, a tap clicks instead.
@@ -129,13 +130,19 @@ class GbChartView @JvmOverloads constructor(
         drawOrder = listOf(CombinedChart.DrawOrder.BAR, CombinedChart.DrawOrder.CANDLE, CombinedChart.DrawOrder.LINE)
 
         val gridColor = ColorUtils.setAlphaComponent(theme.secondaryTextColor, GRID_ALPHA)
+        // WatchLink: minimal axes - muted Poppins labels, horizontal guides only, no axis lines
+        val axisTypeface = WatchLinkFonts.regular(context)
         xAxis.position = XAxisPosition.BOTTOM
-        xAxis.textColor = theme.textColor
+        xAxis.textColor = theme.secondaryTextColor
+        xAxis.typeface = axisTypeface
         xAxis.gridColor = gridColor
+        xAxis.isDrawGridLinesEnabled = false
+        xAxis.isDrawAxisLineEnabled = false
         xAxis.axisLineColor = theme.secondaryTextColor
         xAxis.isDrawLimitLinesBehindDataEnabled = true
         for (axis in listOf(axisLeft, axisRight)) {
-            axis.textColor = theme.textColor
+            axis.textColor = theme.secondaryTextColor
+            axis.typeface = axisTypeface
             axis.gridColor = gridColor
             axis.isDrawAxisLineEnabled = false
         }
@@ -557,7 +564,7 @@ class GbChartView @JvmOverloads constructor(
 
         const val BAR_CORNER_DP = 4f
         const val PERIOD_X_PADDING = 0.5
-        const val GRID_ALPHA = 0x40
+        const val GRID_ALPHA = 0x1F // WatchLink: was 0x40
         const val GUIDE_WIDTH_DP = 1f
         const val GUIDE_DASH_DP = 3f
         const val TOOLTIP_GAP_DP = 10f

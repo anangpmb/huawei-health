@@ -140,11 +140,13 @@ public class SettingsActivity extends AbstractSettingsActivityV2 implements Acti
         private static final Logger LOG = LoggerFactory.getLogger(SettingsActivity.class);
 
         /** Must stay in sync with GBApplication#getAccentColorOverlay() and the ThemeOverlay.App.Accent.* styles. */
+        // WatchLink: "sage" first, it is the default accent
         private static final String[] ACCENT_COLOR_KEYS = {
-                "red", "coral", "orange", "amber", "lime", "green",
+                "sage", "red", "coral", "orange", "amber", "lime", "green",
                 "teal", "cyan", "blue", "indigo", "violet", "pink", "white",
         };
         private static final int[] ACCENT_COLOR_NAME_RES = {
+                R.string.accent_color_sage,
                 R.string.accent_color_red, R.string.accent_color_coral, R.string.accent_color_orange,
                 R.string.accent_color_amber, R.string.accent_color_lime, R.string.accent_color_green,
                 R.string.accent_color_teal, R.string.accent_color_cyan, R.string.accent_color_blue,
@@ -153,6 +155,7 @@ public class SettingsActivity extends AbstractSettingsActivityV2 implements Acti
         };
         /** The tab_pill value of each accent's Dark overlay - matches what dark theme users get. */
         private static final int[] ACCENT_COLOR_SWATCHES_DARK = {
+                0xFF8FC4A4,
                 0xFFE02F00, 0xFFFF5A47, 0xFFF27C1A,
                 0xFFF5B800, 0xFFA8E02F, 0xFF2FD07A,
                 0xFF1DE9D0, 0xFF22C2F0, 0xFF2A6FE0,
@@ -160,6 +163,7 @@ public class SettingsActivity extends AbstractSettingsActivityV2 implements Acti
         };
         /** The tab_pill value of each accent's Light overlay - matches what light theme users get. */
         private static final int[] ACCENT_COLOR_SWATCHES_LIGHT = {
+                0xFF2F5D46,
                 0xFFE02F00, 0xFFD63A25, 0xFFC25400,
                 0xFF9A6F00, 0xFF4F7A00, 0xFF0F7A40,
                 0xFF00786E, 0xFF006E94, 0xFF2A6FE0,

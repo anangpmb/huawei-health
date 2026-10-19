@@ -64,9 +64,9 @@ internal data class BarLayout(val width: Float, val gap: Float) {
  * Builds MPAndroidChart data from a [ChartSpec]. Entry data holds the original x, since grouped bars are offset.
  */
 internal object ChartDataBuilder {
-    const val LINE_WIDTH_DP = 2f
+    const val LINE_WIDTH_DP = 2.5f // WatchLink: was 2
     private const val POINT_RADIUS_DP = 3.5f
-    private const val AREA_FILL_ALPHA = 0.45f
+    private const val AREA_FILL_ALPHA = 0.30f // WatchLink: softer pastel gradient, was 0.45
     private const val MAX_CANDLE_SPACE = 0.45f
     private const val SOLID_FILL_ALPHA = 255
     private const val BAND_FILL_ALPHA = 0x40
@@ -231,9 +231,10 @@ internal object ChartDataBuilder {
             circleColor = style.color
             circleRadius = POINT_RADIUS_DP
             isDrawCircleHoleEnabled = false
+            // WatchLink: every line is a spline. Straight segments become a curve that is flat at
+            // each point, which never overshoots fixed ranges (SpO2 <= 100, stress 0-100).
             mode = when (style.curve) {
-                LineCurve.STRAIGHT -> LineDataSet.Mode.LINEAR
-                LineCurve.FLAT_AT_POINTS -> LineDataSet.Mode.HORIZONTAL_BEZIER
+                LineCurve.STRAIGHT, LineCurve.FLAT_AT_POINTS -> LineDataSet.Mode.HORIZONTAL_BEZIER
                 LineCurve.SMOOTH -> LineDataSet.Mode.CUBIC_BEZIER
             }
             isDrawFilledEnabled = style.filled

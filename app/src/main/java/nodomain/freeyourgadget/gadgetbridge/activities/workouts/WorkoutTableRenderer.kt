@@ -18,6 +18,7 @@ import nodomain.freeyourgadget.gadgetbridge.activities.workouts.entries.Activity
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.entries.TableColumnSpec
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.entries.TableSpec
 import java.util.Locale
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkFonts
 
 private const val TABLE_HORIZONTAL_PADDING_DP = 16
 private const val COLUMN_GAP_DP = 10
@@ -117,7 +118,7 @@ private fun buildHeaderCell(
     val nameView = TextView(context).apply {
         text = name.uppercase(Locale.getDefault())
         textSize = HEADER_TEXT_SIZE_SP
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        typeface = WatchLinkFonts.medium(context)
         // letterSpacing is in em, the design value is in sp
         letterSpacing = HEADER_LETTER_SPACING_SP / HEADER_TEXT_SIZE_SP
         setTextColor(mutedColor)

@@ -64,4 +64,29 @@
             android:title="@string/pref_wanderer_auto_upload_title"
             android:summary="@string/pref_wanderer_auto_upload_summary" />
     </PreferenceCategory>
+    <!-- WatchLink: wired by StravaPreferencesController -->
+    <PreferenceCategory
+        android:title="@string/pref_category_strava">
+        <Preference
+            android:icon="@drawable/ic_info"
+            android:key="pref_key_strava_status"
+            android:title="@string/pref_strava_status_title" />
+        <Preference
+            android:icon="@drawable/ic_language"
+            android:key="pref_key_strava_connect"
+            android:title="@string/pref_strava_connect_title"
+            android:summary="@string/pref_strava_connect_summary" />
+        <Preference
+            android:icon="@drawable/ic_language"
+            android:key="pref_key_strava_disconnect"
+            android:title="@string/pref_strava_disconnect_title"
+            android:summary="@string/pref_strava_disconnect_summary" />
+        <SwitchPreferenceCompat
+            android:defaultValue="false"
+            android:key="strava_auto_upload_enabled"
+            android:layout="@layout/preference_checkbox"
+            android:icon="@drawable/ic_file_upload"
+            android:title="@string/pref_strava_auto_upload_title"
+            android:summary="@string/pref_strava_auto_upload_summary" />
+    </PreferenceCategory>
 </PreferenceScreen>

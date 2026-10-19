@@ -39,7 +39,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -57,6 +56,7 @@ import nodomain.freeyourgadget.gadgetbridge.entities.Device;
 import nodomain.freeyourgadget.gadgetbridge.impl.GBDevice;
 import nodomain.freeyourgadget.gadgetbridge.impl.GBDeviceCandidate;
 import nodomain.freeyourgadget.gadgetbridge.model.DeviceType;
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkScope;
 
 public class DeviceHelper {
     private static final Logger LOG = LoggerFactory.getLogger(DeviceHelper.class);
@@ -131,7 +131,13 @@ public class DeviceHelper {
 
     private DeviceType[] getOrderedDeviceTypes() {
         if (orderedDeviceTypes == null) {
-            ArrayList<DeviceType> orderedDevices = new ArrayList<>(Arrays.asList(DeviceType.values()));
+            // WatchLink: only recognise in-scope (Huawei/Honor wearable) devices
+            ArrayList<DeviceType> orderedDevices = new ArrayList<>();
+            for (DeviceType type : DeviceType.values()) {
+                if (WatchLinkScope.isSupported(type)) {
+                    orderedDevices.add(type);
+                }
+            }
             Collections.sort(orderedDevices, Comparator.comparingInt(dc -> dc.getDeviceCoordinator().getOrderPriority()));
             orderedDeviceTypes = orderedDevices.toArray(new DeviceType[0]);
         }

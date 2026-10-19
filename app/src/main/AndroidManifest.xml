@@ -1245,6 +1245,28 @@
             </intent-filter>
         </activity>
 
+        <!-- WatchLink: share a workout as a route video or card -->
+        <activity
+            android:name=".watchlink.share.WorkoutShareActivity"
+            android:exported="false"
+            android:label="@string/workout_share_title" />
+
+        <!-- WatchLink: Strava OAuth redirect, must match StravaApiClient.REDIRECT_URI -->
+        <activity
+            android:name=".externalservices.strava.StravaOAuthCallbackActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="watchlink"
+                    android:host="localhost" />
+            </intent-filter>
+        </activity>
+
         <!-- For supported versions through Android 13, create an activity to show the rationale
        of Health Connect permissions once users click the privacy policy link. -->
         <activity

@@ -29,6 +29,9 @@ import nodomain.freeyourgadget.gadgetbridge.widgets.impl.BodyFatWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.BodyWaterWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.MuscleMassWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.impl.WeightWidget
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.HeartRateTrendWidget
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.SleepTrendWidget
+import nodomain.freeyourgadget.gadgetbridge.widgets.impl.StepsTrendWidget
 
 /**
  * Resolves [GBWidget] implementations by their IDs ([GBWidget.id]) - the common ones
@@ -65,6 +68,10 @@ object WidgetRegistry {
         Vo2MaxCyclingWidget,
         Vo2MaxRunningWidget,
         WeightWidget,
+        // WatchLink: spline metric rows
+        HeartRateTrendWidget,
+        SleepTrendWidget,
+        StepsTrendWidget,
     )
 
     /**

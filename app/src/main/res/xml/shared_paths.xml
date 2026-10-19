@@ -9,4 +9,6 @@
     <cache-path name="audio" path="audio/" />
     <cache-path name="images" path="images/" />
     <cache-path name="pdf" path="pdf/" />
+    <!-- WatchLink: workout share video and card -->
+    <cache-path name="workout_share" path="workout_share/" />
 </paths>

@@ -30,20 +30,16 @@ object WidgetLayoutStore {
     /**
      * The default widgets, in order.
      */
+    // WatchLink: soft-look home - goal rings, two gauge cards, then the spline metric rows
     private val DEFAULT_ORDER = listOf(
-        "today",
         "goals",
         "steps",
-        "distance",
-        "activetime",
         "sleep",
-        "bodyenergy",
+        "watchlink_hr_trend",
+        "watchlink_sleep_trend",
+        "watchlink_steps_trend",
         "stress_segmented",
-        "hrv",
-        "bloodpressure",
-        "vo2max",
-        "calories_active",
-        "calories_segmented",
+        "spo2",
     )
 
     private val gson = Gson()
@@ -184,7 +180,8 @@ object WidgetLayoutStore {
             val columns = when (typeId) {
                 "today" -> if (prefs.getBoolean("dashboard_widget_today_2columns", true)) 2 else 1
                 "goals" -> if (prefs.getBoolean("dashboard_widget_goals_2columns", true)) 2 else 1
-                else -> 1
+                // WatchLink: e.g. the full-width spline rows
+                else -> WidgetRegistry.byId(typeId)?.defaultColumns ?: 1
             }
             LayoutEntry(id = typeId, type = typeId, cols = columns)
         }

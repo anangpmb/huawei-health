@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import com.google.android.material.color.MaterialColors
 import nodomain.freeyourgadget.gadgetbridge.R
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkFonts
 
 private const val HORIZONTAL_PADDING_DP = 16
 private const val VERTICAL_PADDING_DP = 16
@@ -33,7 +34,7 @@ class SectionHeaderView @JvmOverloads constructor(
     private val titleView = TextView(context).apply {
         textSize = 18f
         gravity = Gravity.START
-        typeface = Typeface.DEFAULT_BOLD
+        typeface = WatchLinkFonts.semiBold(context)
         setTextColor(MaterialColors.getColor(context, R.attr.textColorPrimary, "SectionHeaderView"))
     }
 

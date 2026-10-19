@@ -17,9 +17,10 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.color.MaterialColors
 import com.google.android.material.elevation.ElevationOverlayProvider
 import nodomain.freeyourgadget.gadgetbridge.R
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkFonts
 
 private const val COLUMNS = 2
-private const val CARD_CORNER_RADIUS_DP = 12
+private const val CARD_CORNER_RADIUS_DP = 20 // WatchLink: was 12
 private const val TILE_GAP_DP = 12
 private const val TILE_PADDING_HORIZONTAL_DP = 12
 private const val TILE_PADDING_VERTICAL_DP = 16
@@ -185,7 +186,7 @@ private fun buildIconTileContent(context: Context, stat: StatTileData, @Drawable
             addView(TextView(context).apply {
                 text = stat.value
                 textSize = 18f
-                typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+                typeface = WatchLinkFonts.medium(context)
                 setTextColor(stat.valueColor ?: MaterialColors.getColor(context, R.attr.textColorPrimary, "StatTile"))
             })
             addView(TextView(context).apply {
@@ -218,7 +219,7 @@ private fun buildCenteredTileContent(context: Context, stat: StatTileData): Line
         addView(TextView(context).apply {
             text = stat.value
             textSize = 20f
-            typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+            typeface = WatchLinkFonts.medium(context)
             gravity = Gravity.CENTER_HORIZONTAL
             setTextColor(stat.valueColor ?: MaterialColors.getColor(context, R.attr.textColorPrimary, "StatTile"))
             // MATCH_PARENT width (content's vertical LinearLayout would default to this
@@ -234,7 +235,7 @@ private fun buildCenteredTileContent(context: Context, stat: StatTileData): Line
                 text = stat.subtext
                 textSize = 12f
                 gravity = Gravity.CENTER
-                typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+                typeface = WatchLinkFonts.medium(context)
                 includeFontPadding = false
                 compoundDrawablePadding = dpToPx(context, SUBTEXT_DRAWABLE_PADDING_DP)
                 val color = stat.subtextColor ?: MaterialColors.getColor(context, R.attr.textColorPrimary, "StatTile")

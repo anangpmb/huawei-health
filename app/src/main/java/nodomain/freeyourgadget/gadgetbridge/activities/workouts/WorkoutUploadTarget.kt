@@ -22,6 +22,7 @@ import androidx.annotation.StringRes
 import nodomain.freeyourgadget.gadgetbridge.GBApplication
 import nodomain.freeyourgadget.gadgetbridge.R
 import nodomain.freeyourgadget.gadgetbridge.externalservices.endurain.EndurainTokenManager
+import nodomain.freeyourgadget.gadgetbridge.externalservices.strava.StravaUploadTarget
 import nodomain.freeyourgadget.gadgetbridge.externalservices.wanderer.WandererTokenManager
 import nodomain.freeyourgadget.gadgetbridge.entities.BaseActivitySummary
 import nodomain.freeyourgadget.gadgetbridge.entities.WorkoutUpload
@@ -150,7 +151,7 @@ interface WorkoutUploadTarget {
 
 /** Every supported upload target. */
 object WorkoutUploadTargets {
-    val ALL: List<WorkoutUploadTarget> = listOf(EndurainUploadTarget, WandererUploadTarget)
+    val ALL: List<WorkoutUploadTarget> = listOf(EndurainUploadTarget, WandererUploadTarget, StravaUploadTarget)
 
     /** Targets the user has both enabled and finished setting up. */
     fun active(context: Context, prefs: GBPrefs): List<WorkoutUploadTarget> =

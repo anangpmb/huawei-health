@@ -403,7 +403,7 @@
     <style name="TextAppearance.App.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
         <item name="android:textSize">20sp</item>
         <item name="android:textStyle">normal</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:letterSpacing">-0.01</item>
         <item name="android:textColor">?attr/toolbar_title</item>
     </style>
@@ -666,7 +666,7 @@
     <style name="TextAppearance.App.DateLabel" parent="TextAppearance.Material3.TitleSmall">
         <item name="android:textSize">13sp</item>
         <item name="android:textColor">?attr/datestep_label</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
     </style>
 
     <!-- Base: tonal dark pill, chevron on the start side -->
@@ -689,7 +689,7 @@
         <item name="android:textColor">?attr/datestep_caption</item>
         <item name="android:letterSpacing">0.04</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:includeFontPadding">false</item>
         <item name="rippleColor">#33FFFFFF</item>
         <item name="android:stateListAnimator">@null</item>

@@ -73,6 +73,7 @@ import java.io.PrintWriter
 import java.io.StringWriter
 import java.nio.charset.StandardCharsets
 import java.util.Locale
+import nodomain.freeyourgadget.gadgetbridge.watchlink.share.WorkoutShareActivity
 
 class WorkoutDetailsFragment : Fragment(), MenuProvider {
     private var workoutId: Long = -1
@@ -309,6 +310,14 @@ class WorkoutDetailsFragment : Fragment(), MenuProvider {
                 true
             }
 
+            // WatchLink: animated route video / share card
+            R.id.activity_action_share_workout -> {
+                workout.summary.id?.let { id ->
+                    startActivity(WorkoutShareActivity.intent(requireContext(), gbDevice, id))
+                }
+                true
+            }
+
             R.id.activity_action_upload_to_endurain -> {
                 uploadTo(EndurainUploadTarget)
                 true
@@ -463,6 +472,7 @@ class WorkoutDetailsFragment : Fragment(), MenuProvider {
         if (overflowMenu != null) {
             overflowMenu.findItem(R.id.activity_action_show_gpx)?.isVisible = hasGpx
             overflowMenu.findItem(R.id.activity_action_share_gpx)?.isVisible = hasGpx
+            overflowMenu.findItem(R.id.activity_action_share_workout)?.isVisible = hasGpx
             overflowMenu.findItem(R.id.activity_action_dev_inspect_file)?.isVisible =
                 hasRawDetailsPath && workout.summary.rawDetailsPath?.lowercase(Locale.ROOT)?.endsWith(".fit") == true
             overflowMenu.findItem(R.id.activity_action_dev_share_raw_summary)?.isVisible = hasRawSummary

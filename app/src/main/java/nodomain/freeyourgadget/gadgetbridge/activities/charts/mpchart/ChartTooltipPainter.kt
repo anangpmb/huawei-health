@@ -7,6 +7,7 @@ import android.graphics.RectF
 import android.graphics.Typeface
 import android.util.TypedValue
 import nodomain.freeyourgadget.gadgetbridge.activities.charts.spec.ChartTheme
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkFonts
 
 internal class ChartTooltipPainter(context: Context, theme: ChartTheme) {
     private val metrics = context.resources.displayMetrics
@@ -32,12 +33,12 @@ internal class ChartTooltipPainter(context: Context, theme: ChartTheme) {
     private val titlePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = theme.markerTitleColor
         textSize = sp(11f)
-        typeface = Typeface.DEFAULT
+        typeface = WatchLinkFonts.regular(context)
     }
     private val valuePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         color = theme.markerValueColor
         textSize = sp(13f)
-        typeface = Typeface.create("sans-serif-medium", Typeface.NORMAL)
+        typeface = WatchLinkFonts.medium(context)
     }
     private val swatchPaint = Paint(Paint.ANTI_ALIAS_FLAG)
     private val rect = RectF()

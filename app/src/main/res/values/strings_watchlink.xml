@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WatchLink-specific strings. Kept out of strings.xml to avoid upstream merge conflicts;
+     English only for now, hence translatable="false". -->
+<resources>
+    <!-- Soft look -->
+    <string name="accent_color_sage" translatable="false">Sage</string>
+    <string name="widget_hr_trend" translatable="false">Heart rate trend</string>
+    <string name="widget_steps_trend" translatable="false">Steps trend</string>
+    <string name="widget_sleep_trend" translatable="false">Sleep trend</string>
+    <string name="widget_trend_value_bpm" translatable="false">%1$d bpm</string>
+    <string name="widget_trend_value_steps" translatable="false">%1$s steps</string>
+    <string name="widget_trend_value_hours" translatable="false">%1$s hours</string>
+    <string name="widget_trend_subtitle_today" translatable="false">Today</string>
+    <string name="widget_trend_subtitle_week" translatable="false">Last 7 nights</string>
+
+    <!-- Workout share (translatable; Indonesian in values-id) -->
+    <string name="activity_detail_share_workout">Share workout</string>
+    <string name="workout_share_title">Share workout</string>
+    <string name="workout_share_preview_description">Preview of the shared workout</string>
+    <string name="workout_share_mode_video">Video</string>
+    <string name="workout_share_mode_card">Card</string>
+    <string name="workout_share_video_needs_route">A video needs a GPS route; this workout has none.</string>
+    <string name="workout_share_background">Background</string>
+    <string name="workout_share_background_map">Map</string>
+    <string name="workout_share_background_pastel">Pastel</string>
+    <string name="workout_share_background_transparent">Transparent</string>
+    <string name="workout_share_map_not_configured">To show the map, choose a folder of offline maps in Settings → Maps.</string>
+    <string name="workout_share_map_unavailable">No offline map covers this route, so the pastel background is used.</string>
+    <string name="workout_share_ink_light">Light text</string>
+    <string name="workout_share_ink_dark">Dark text</string>
+    <string name="workout_share_stats">Statistics</string>
+    <string name="workout_share_stat_duration">Duration</string>
+    <string name="workout_share_stat_pace">Avg pace</string>
+    <string name="workout_share_stat_heart_rate">Avg heart rate</string>
+    <string name="workout_share_stat_calories">Calories</string>
+    <string name="workout_share_value_bpm">%1$d bpm</string>
+    <string name="workout_share_legend_slow">slow</string>
+    <string name="workout_share_legend_fast">fast</string>
+    <string name="workout_share_wordmark" translatable="false">WatchLink</string>
+    <string name="workout_share_hide_ends">Hide the first and last 200 m</string>
+    <string name="workout_share_hide_ends_hint">Keeps where you start and finish, such as your home, private.</string>
+    <string name="workout_share_share">Share</string>
+    <string name="workout_share_save">Save</string>
+    <string name="workout_share_cancel">Cancel</string>
+    <string name="workout_share_loading">Loading workout…</string>
+    <string name="workout_share_loading_failed">Could not load this workout</string>
+    <string name="workout_share_preparing_map">Preparing the offline map…</string>
+    <string name="workout_share_rendering_video">Creating video… %1$d%%</string>
+    <string name="workout_share_rendering_card">Creating card…</string>
+    <string name="workout_share_failed">Could not create the file: %1$s</string>
+    <string name="workout_share_saved">Saved</string>
+    <string name="workout_share_save_failed">Could not save the file</string>
+
+    <!-- Strava -->
+    <string name="pref_category_strava" translatable="false">Strava</string>
+    <string name="activity_detail_upload_to_strava" translatable="false">Upload to Strava</string>
+    <string name="strava_successfully_uploaded" translatable="false">Uploaded to Strava</string>
+    <string name="strava_upload_failed" translatable="false">Strava upload failed: %1$s</string>
+    <string name="strava_upload_failed_generic" translatable="false">Strava upload failed</string>
+
+    <string name="strava_error_not_connected" translatable="false">Not connected to Strava</string>
+    <string name="strava_error_unauthorized" translatable="false">Strava rejected the login. Reconnect in Settings → Online fitness trackers.</string>
+    <string name="strava_error_rate_limited" translatable="false">Strava rate limit reached; the upload will be retried later</string>
+    <string name="strava_error_http" translatable="false">Strava returned HTTP %1$d %2$s</string>
+    <string name="strava_error_still_processing" translatable="false">Strava is still processing the upload; it will be checked again on the next sync</string>
+
+    <string name="pref_strava_status_title" translatable="false">Status</string>
+    <string name="strava_status_not_connected" translatable="false">Not connected</string>
+    <string name="strava_status_connected" translatable="false">Connected as %1$s</string>
+    <string name="strava_status_connected_anonymous" translatable="false">Connected</string>
+    <string name="pref_strava_connect_title" translatable="false">Connect to Strava</string>
+    <string name="pref_strava_connect_summary" translatable="false">Enter your Strava API application\'s Client ID and Client Secret, then sign in</string>
+    <string name="pref_strava_disconnect_title" translatable="false">Disconnect from Strava</string>
+    <string name="pref_strava_disconnect_summary" translatable="false">Revokes WatchLink\'s access to your Strava account</string>
+    <string name="pref_strava_auto_upload_title" translatable="false">Upload workouts automatically</string>
+    <string name="pref_strava_auto_upload_summary" translatable="false">Send each newly synced workout to Strava as a FIT file</string>
+
+    <string name="strava_credentials_title" translatable="false">Strava API application</string>
+    <string name="strava_credentials_message" translatable="false">Create an application at strava.com/settings/api and set its Authorization Callback Domain to localhost.</string>
+    <string name="strava_client_id_hint" translatable="false">Client ID</string>
+    <string name="strava_client_secret_hint" translatable="false">Client Secret</string>
+    <string name="strava_credentials_missing" translatable="false">Enter both the Client ID and the Client Secret</string>
+    <string name="strava_no_browser" translatable="false">No app found to open the Strava login</string>
+
+    <string name="strava_connected_toast" translatable="false">Connected to Strava</string>
+    <string name="strava_connect_failed" translatable="false">Could not connect to Strava: %1$s</string>
+    <string name="strava_connect_denied" translatable="false">Strava access was not granted</string>
+    <string name="strava_scope_missing" translatable="false">Strava did not grant permission to upload activities. Connect again and keep that permission ticked.</string>
+    <string name="strava_disconnected_toast" translatable="false">Disconnected from Strava</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WatchLink: Indonesian strings for the workout share feature -->
+<resources>
+    <string name="activity_detail_share_workout">Bagikan hasil</string>
+    <string name="workout_share_title">Bagikan hasil</string>
+    <string name="workout_share_preview_description">Pratinjau hasil workout yang dibagikan</string>
+    <string name="workout_share_mode_video">Video</string>
+    <string name="workout_share_mode_card">Kartu</string>
+    <string name="workout_share_video_needs_route">Video memerlukan rute GPS; workout ini tidak memilikinya.</string>
+    <string name="workout_share_background">Latar</string>
+    <string name="workout_share_background_map">Peta</string>
+    <string name="workout_share_background_pastel">Pastel</string>
+    <string name="workout_share_background_transparent">Transparan</string>
+    <string name="workout_share_map_not_configured">Untuk menampilkan peta, pilih folder peta offline di Settings → Maps.</string>
+    <string name="workout_share_map_unavailable">Tidak ada peta offline yang mencakup rute ini, jadi latar pastel dipakai.</string>
+    <string name="workout_share_ink_light">Teks terang</string>
+    <string name="workout_share_ink_dark">Teks gelap</string>
+    <string name="workout_share_stats">Statistik</string>
+    <string name="workout_share_stat_duration">Durasi</string>
+    <string name="workout_share_stat_pace">Pace rata-rata</string>
+    <string name="workout_share_stat_heart_rate">Detak jantung rata-rata</string>
+    <string name="workout_share_stat_calories">Kalori</string>
+    <string name="workout_share_value_bpm">%1$d bpm</string>
+    <string name="workout_share_legend_slow">lambat</string>
+    <string name="workout_share_legend_fast">cepat</string>
+    <string name="workout_share_hide_ends">Sembunyikan 200 m awal dan akhir</string>
+    <string name="workout_share_hide_ends_hint">Menjaga lokasi awal dan akhir, misalnya rumah Anda, tetap privat.</string>
+    <string name="workout_share_share">Bagikan</string>
+    <string name="workout_share_save">Simpan</string>
+    <string name="workout_share_cancel">Batal</string>
+    <string name="workout_share_loading">Memuat workout…</string>
+    <string name="workout_share_loading_failed">Workout ini tidak bisa dimuat</string>
+    <string name="workout_share_preparing_map">Menyiapkan peta offline…</string>
+    <string name="workout_share_rendering_video">Membuat video… %1$d%%</string>
+    <string name="workout_share_rendering_card">Membuat kartu…</string>
+    <string name="workout_share_failed">Gagal membuat file: %1$s</string>
+    <string name="workout_share_saved">Tersimpan</string>
+    <string name="workout_share_save_failed">File tidak bisa disimpan</string>
+</resources>

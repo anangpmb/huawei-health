@@ -83,6 +83,7 @@ import nodomain.freeyourgadget.gadgetbridge.model.TemperatureSample;
 import nodomain.freeyourgadget.gadgetbridge.model.heartratezones.HeartRateZonesSpec;
 import nodomain.freeyourgadget.gadgetbridge.service.devices.huawei.HuaweiActivityTrackProvider;
 import nodomain.freeyourgadget.gadgetbridge.service.devices.huawei.HuaweiWorkoutGbParser;
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkScope;
 
 public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
@@ -254,7 +255,7 @@ public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
     @Override
     public boolean supportsWeather(@NonNull final GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).supportsWeather();
+        return WatchLinkScope.WEATHER && HuaweiDeviceStateManager.get(device).supportsWeather();
     }
 
     @Override
@@ -279,7 +280,7 @@ public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
     @Override
     public boolean supportsInstalledAppManagement(@NonNull final GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).getSupportsInstalledAppManagement();
+        return WatchLinkScope.WATCH_APPS && HuaweiDeviceStateManager.get(device).getSupportsInstalledAppManagement();
     }
 
     @Override
@@ -294,12 +295,12 @@ public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
     @Override
     public int getAlarmSlotCount(GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).getAlarmSlotCount(device);
+        return WatchLinkScope.ALARMS ? HuaweiDeviceStateManager.get(device).getAlarmSlotCount(device) : 0;
     }
 
     @Override
     public int getContactsSlotCount(GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).getContactsSlotCount(device);
+        return WatchLinkScope.CONTACTS ? HuaweiDeviceStateManager.get(device).getContactsSlotCount(device) : 0;
     }
 
     @Override
@@ -309,7 +310,7 @@ public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
     @Override
     public boolean supportsCalendarEvents(@NonNull final GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).supportsCalendarEvents();
+        return WatchLinkScope.CALENDAR && HuaweiDeviceStateManager.get(device).supportsCalendarEvents();
     }
 
     @Override
@@ -375,7 +376,7 @@ public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
     @Override
     public boolean supportsFindDevice(@NonNull final GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).supportsFindDeviceAbility();
+        return WatchLinkScope.FIND_DEVICE && HuaweiDeviceStateManager.get(device).supportsFindDeviceAbility();
     }
 
     @Override
@@ -627,6 +628,6 @@ public abstract class HuaweiCoordinator extends AbstractDeviceCoordinator {
 
     @Override
     public boolean supportsNavigation(@NonNull final GBDevice device) {
-        return HuaweiDeviceStateManager.get(device).supportsNavigation();
+        return WatchLinkScope.NAVIGATION && HuaweiDeviceStateManager.get(device).supportsNavigation();
     }
 }

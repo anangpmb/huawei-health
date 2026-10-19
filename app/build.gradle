@@ -133,7 +133,8 @@ android {
     }
 
     defaultConfig {
-        applicationId "nodomain.freeyourgadget.gadgetbridge"
+        // WatchLink: own application ID so it installs alongside upstream Gadgetbridge
+        applicationId "com.watchlink.app"
 
         // Note: update toolchain.languageVersion when changing targetSdk
         //noinspection OldTargetApi
@@ -168,21 +169,11 @@ android {
     flavorDimensions += "device_type"
     productFlavors {
         mainline {
-            // Ensure that when starting from scratch, 'mainline' is selected, not 'banglejs'
             getIsDefault().set(true)
             // the default build product flavor
             dimension "device_type"
             //applicationIdSuffix ""
             //versionNameSuffix ""
-        }
-
-        banglejs {
-            dimension "device_type"
-            applicationId "com.espruino.gadgetbridge"
-            applicationIdSuffix ".banglejs"
-            versionNameSuffix "-banglejs"
-            buildConfigField "boolean", "INTERNET_ACCESS", "true"
-            // Note: app/src/banglejs/AndroidManifest.xml contains some extra permissions
         }
     }
 

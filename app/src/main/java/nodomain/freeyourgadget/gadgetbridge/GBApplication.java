@@ -702,7 +702,8 @@ public class GBApplication extends Application {
     }
 
     public static final String PREF_ACCENT_COLOR = "pref_key_accent_color";
-    public static final String PREF_ACCENT_COLOR_DEFAULT = "red";
+    // WatchLink: Sage (forest green) is the default accent of the soft look
+    public static final String PREF_ACCENT_COLOR_DEFAULT = "sage";
 
     /**
      * The ThemeOverlay for the user's chosen accent color preset (Settings > User interface).
@@ -714,6 +715,8 @@ public class GBApplication extends Application {
         final String accent = prefs.getString(PREF_ACCENT_COLOR, PREF_ACCENT_COLOR_DEFAULT);
         final boolean dark = isDarkThemeEnabled();
         switch (accent) {
+            case "sage":
+                return dark ? R.style.ThemeOverlay_App_Accent_Sage_Dark : R.style.ThemeOverlay_App_Accent_Sage_Light;
             case "coral":
                 return dark ? R.style.ThemeOverlay_App_Accent_Coral_Dark : R.style.ThemeOverlay_App_Accent_Coral_Light;
             case "orange":

@@ -39,6 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 import nodomain.freeyourgadget.gadgetbridge.GBApplication;
 import nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutUploadWorker;
+import nodomain.freeyourgadget.gadgetbridge.externalservices.strava.StravaUploadTarget;
 import nodomain.freeyourgadget.gadgetbridge.impl.GBDevice;
 import nodomain.freeyourgadget.gadgetbridge.util.GBPrefs;
 import nodomain.freeyourgadget.gadgetbridge.util.healthconnect.HealthConnectSyncWorker;
@@ -132,7 +133,9 @@ public class NewDataReceiver extends BroadcastReceiver {
      */
     private void maybeScheduleAutoUpload(Context context, Intent intent, GBPrefs prefs) {
         if (!prefs.getBoolean(GBPrefs.ENDURAIN_AUTO_UPLOAD_ENABLED, false) &&
-                !prefs.getBoolean(GBPrefs.WANDERER_AUTO_UPLOAD_ENABLED, false)) {
+                !prefs.getBoolean(GBPrefs.WANDERER_AUTO_UPLOAD_ENABLED, false) &&
+                // WatchLink: Strava auto-upload
+                !prefs.getBoolean(StravaUploadTarget.PREF_AUTO_UPLOAD_ENABLED, false)) {
             return;
         }
 

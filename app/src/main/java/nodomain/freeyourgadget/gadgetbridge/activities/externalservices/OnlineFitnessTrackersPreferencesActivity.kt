@@ -28,6 +28,7 @@ import nodomain.freeyourgadget.gadgetbridge.activities.AbstractSettingsActivityV
 import nodomain.freeyourgadget.gadgetbridge.externalservices.endurain.EndurainSetupBottomSheet
 import nodomain.freeyourgadget.gadgetbridge.externalservices.endurain.EndurainSetupViewModel
 import nodomain.freeyourgadget.gadgetbridge.externalservices.endurain.EndurainTokenManager
+import nodomain.freeyourgadget.gadgetbridge.externalservices.strava.StravaPreferencesController
 import nodomain.freeyourgadget.gadgetbridge.externalservices.wanderer.WandererSetupBottomSheet
 import nodomain.freeyourgadget.gadgetbridge.externalservices.wanderer.WandererTokenManager
 import nodomain.freeyourgadget.gadgetbridge.util.DateTimeUtils
@@ -41,8 +42,12 @@ class OnlineFitnessTrackersPreferencesActivity : AbstractSettingsActivityV2() {
 
         private val vm: EndurainSetupViewModel by viewModels()
 
+        // WatchLink: Strava
+        private val strava = StravaPreferencesController(this)
+
         override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
             setPreferencesFromResource(R.xml.online_fitness_trackers_preferences, rootKey)
+            strava.attach()
 
             updateNetworkWarning()
             wireLoginPreferences()
@@ -98,6 +103,7 @@ class OnlineFitnessTrackersPreferencesActivity : AbstractSettingsActivityV2() {
             super.onResume()
             updateStatus()
             updateLogoutPreferenceVisibility()
+            strava.refresh()
         }
 
         private fun updateNetworkWarning() {

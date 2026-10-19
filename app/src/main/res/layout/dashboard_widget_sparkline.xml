@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WatchLink: one metric row - pastel icon chip, title and value, and a spline sparkline -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="88dp"
+    android:orientation="horizontal"
+    android:paddingStart="16dp"
+    android:paddingTop="14dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="14dp"
+    tools:context=".widgets.impl.SparklineWidget">
+
+    <FrameLayout
+        android:id="@+id/sparkline_icon_chip"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:background="@drawable/watchlink_icon_chip">
+
+        <ImageView
+            android:id="@+id/sparkline_icon"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_gravity="center"
+            android:importantForAccessibility="no" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sparkline_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
+            tools:text="Heart rate" />
+
+        <TextView
+            android:id="@+id/sparkline_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            tools:text="95 bpm" />
+    </LinearLayout>
+
+    <nodomain.freeyourgadget.gadgetbridge.watchlink.SparklineView
+        android:id="@+id/sparkline_chart"
+        android:layout_width="120dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="12dp"
+        android:importantForAccessibility="no" />
+
+</LinearLayout>

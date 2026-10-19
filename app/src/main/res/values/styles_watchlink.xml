@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- WatchLink "Soft" look: Poppins type scale, generous rounded corners, warm-white cards and the
+     Sage accent. Kept in its own file so upstream styles.xml keeps merging cleanly. -->
+<resources>
+
+    <!-- Applied on top of every base theme by AbstractGBActivity.init(), before the accent and
+         contrasting-surface overlays, so those user choices still win. Deliberately no theme-level
+         fontFamily: that would override every textAppearance and flatten the weight hierarchy. -->
+    <style name="ThemeOverlay.WatchLink" parent="">
+        <!-- Material 3 type scale -->
+        <item name="textAppearanceDisplayLarge">@style/TextAppearance.WatchLink.DisplayLarge</item>
+        <item name="textAppearanceDisplayMedium">@style/TextAppearance.WatchLink.DisplayMedium</item>
+        <item name="textAppearanceDisplaySmall">@style/TextAppearance.WatchLink.DisplaySmall</item>
+        <item name="textAppearanceHeadlineLarge">@style/TextAppearance.WatchLink.HeadlineLarge</item>
+        <item name="textAppearanceHeadlineMedium">@style/TextAppearance.WatchLink.HeadlineMedium</item>
+        <item name="textAppearanceHeadlineSmall">@style/TextAppearance.WatchLink.HeadlineSmall</item>
+        <item name="textAppearanceTitleLarge">@style/TextAppearance.WatchLink.TitleLarge</item>
+        <item name="textAppearanceTitleMedium">@style/TextAppearance.WatchLink.TitleMedium</item>
+        <item name="textAppearanceTitleSmall">@style/TextAppearance.WatchLink.TitleSmall</item>
+        <item name="textAppearanceBodyLarge">@style/TextAppearance.WatchLink.BodyLarge</item>
+        <item name="textAppearanceBodyMedium">@style/TextAppearance.WatchLink.BodyMedium</item>
+        <item name="textAppearanceBodySmall">@style/TextAppearance.WatchLink.BodySmall</item>
+        <item name="textAppearanceLabelLarge">@style/TextAppearance.WatchLink.LabelLarge</item>
+        <item name="textAppearanceLabelMedium">@style/TextAppearance.WatchLink.LabelMedium</item>
+        <item name="textAppearanceLabelSmall">@style/TextAppearance.WatchLink.LabelSmall</item>
+
+        <!-- Default appearance of plain TextViews and preference titles/summaries -->
+        <item name="android:textAppearance">@style/TextAppearance.WatchLink.Default</item>
+        <item name="android:textAppearanceSmall">@style/TextAppearance.WatchLink.Small</item>
+        <item name="android:textAppearanceMedium">@style/TextAppearance.WatchLink.Medium</item>
+        <item name="android:textAppearanceLarge">@style/TextAppearance.WatchLink.Large</item>
+        <item name="android:textAppearanceListItem">@style/TextAppearance.WatchLink.BodyLarge</item>
+        <item name="android:textAppearanceListItemSmall">@style/TextAppearance.WatchLink.BodyMedium</item>
+        <item name="android:textAppearanceListItemSecondary">@style/TextAppearance.WatchLink.BodyMedium</item>
+
+        <!-- Soft, generous corners for every Material component -->
+        <item name="shapeAppearanceCornerExtraSmall">@style/ShapeAppearance.WatchLink.Corner.ExtraSmall</item>
+        <item name="shapeAppearanceCornerSmall">@style/ShapeAppearance.WatchLink.Corner.Small</item>
+        <item name="shapeAppearanceCornerMedium">@style/ShapeAppearance.WatchLink.Corner.Medium</item>
+        <item name="shapeAppearanceCornerLarge">@style/ShapeAppearance.WatchLink.Corner.Large</item>
+        <item name="shapeAppearanceCornerExtraLarge">@style/ShapeAppearance.WatchLink.Corner.ExtraLarge</item>
+
+        <!-- Cards sit one step lighter than the page instead of matching it -->
+        <item name="stat_tile_bg">?attr/colorSurfaceContainerLow</item>
+        <item name="cardview_background_color">?attr/colorSurfaceContainerLow</item>
+        <item name="device_card_bg">?attr/colorSurfaceContainerLow</item>
+    </style>
+
+    <!-- Sage accent (WatchLink default, see GBApplication.PREF_ACCENT_COLOR_DEFAULT) -->
+    <style name="ThemeOverlay.App.Accent.Sage.Light" parent="">
+        <item name="tab_pill">#2F5D46</item>
+        <item name="tab_pill_on">#FFFFFF</item>
+        <item name="subtab_pill">#DEE9D6</item>
+        <item name="subtab_pill_on">#2F5D46</item>
+    </style>
+    <style name="ThemeOverlay.App.Accent.Sage.Dark" parent="">
+        <item name="tab_pill">#8FC4A4</item>
+        <item name="tab_pill_on">#0E2419</item>
+        <item name="subtab_pill">#1F3328</item>
+        <item name="subtab_pill_on">#A8D5B9</item>
+    </style>
+
+    <!-- Type scale: regular weights use the family (so textStyle="bold" picks SemiBold), the
+         medium-weight roles use the Medium face directly so the weight holds on every API level. -->
+    <style name="TextAppearance.WatchLink.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    <style name="TextAppearance.WatchLink.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    <style name="TextAppearance.WatchLink.TitleSmall" parent="TextAppearance.Material3.TitleSmall">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    <style name="TextAppearance.WatchLink.BodyLarge" parent="TextAppearance.Material3.BodyLarge">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.BodyMedium" parent="TextAppearance.Material3.BodyMedium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.BodySmall" parent="TextAppearance.Material3.BodySmall">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.LabelLarge" parent="TextAppearance.Material3.LabelLarge">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    <style name="TextAppearance.WatchLink.LabelMedium" parent="TextAppearance.Material3.LabelMedium">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+    <style name="TextAppearance.WatchLink.LabelSmall" parent="TextAppearance.Material3.LabelSmall">
+        <item name="fontFamily">@font/poppins_medium</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <!-- Defaults for TextViews without a textAppearance: same sizes/colours as before, new face -->
+    <style name="TextAppearance.WatchLink.Default" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.Small" parent="TextAppearance.AppCompat.Small">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.Medium" parent="TextAppearance.AppCompat.Medium">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+    <style name="TextAppearance.WatchLink.Large" parent="TextAppearance.AppCompat.Large">
+        <item name="fontFamily">@font/poppins</item>
+        <item name="android:fontFamily">@font/poppins</item>
+    </style>
+
+    <!-- Corners: Material 3 defaults are 4/8/12/16/28dp -->
+    <style name="ShapeAppearance.WatchLink.Corner.ExtraSmall" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+    <style name="ShapeAppearance.WatchLink.Corner.Small" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">14dp</item>
+    </style>
+    <style name="ShapeAppearance.WatchLink.Corner.Medium" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+    <style name="ShapeAppearance.WatchLink.Corner.Large" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">24dp</item>
+    </style>
+    <style name="ShapeAppearance.WatchLink.Corner.ExtraLarge" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">32dp</item>
+    </style>
+</resources>
