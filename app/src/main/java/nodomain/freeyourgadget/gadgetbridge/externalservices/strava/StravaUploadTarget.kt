@@ -27,6 +27,7 @@ import nodomain.freeyourgadget.gadgetbridge.activities.workouts.WorkoutUploader
 import nodomain.freeyourgadget.gadgetbridge.entities.BaseActivitySummary
 import nodomain.freeyourgadget.gadgetbridge.entities.WorkoutUpload
 import nodomain.freeyourgadget.gadgetbridge.util.GBPrefs
+import nodomain.freeyourgadget.gadgetbridge.watchlink.DemoMode
 import java.io.File
 
 /**
@@ -67,8 +68,12 @@ object StravaUploadTarget : WorkoutUploadTarget {
     override fun activityUrl(context: Context, remoteActivityId: String): String =
         StravaApiClient.activityUrl(remoteActivityId)
 
-    override fun upload(context: Context, summary: BaseActivitySummary, payload: File) =
-        StravaApiClient(context).upload(summary, payload)
+    override fun upload(context: Context, summary: BaseActivitySummary, payload: File): WorkoutUploader.UploadResult {
+        if (DemoMode.isDemoWorkout(summary)) {
+            return WorkoutUploader.UploadResult(false, null, context.getString(R.string.watchlink_demo_no_upload))
+        }
+        return StravaApiClient(context).upload(summary, payload)
+    }
 
     /**
      * Only a name the user set locally is pushed; otherwise Strava's own naming is kept. The kind

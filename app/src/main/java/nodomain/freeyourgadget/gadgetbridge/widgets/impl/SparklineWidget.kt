@@ -32,6 +32,16 @@ import nodomain.freeyourgadget.gadgetbridge.watchlink.SparklineView
 import nodomain.freeyourgadget.gadgetbridge.widgets.GBWidget
 import nodomain.freeyourgadget.gadgetbridge.widgets.WidgetActions
 import nodomain.freeyourgadget.gadgetbridge.widgets.WidgetConfig
+import android.graphics.Color
+import android.graphics.Typeface
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.TextPaint
+import android.text.style.ForegroundColorSpan
+import android.text.style.MetricAffectingSpan
+import android.text.style.RelativeSizeSpan
+import com.google.android.material.color.MaterialColors
+import nodomain.freeyourgadget.gadgetbridge.watchlink.WatchLinkFonts
 
 /**
  * WatchLink: a full-width metric row - pastel icon chip, title, current value and a spline of the
@@ -65,7 +75,7 @@ abstract class SparklineWidget : GBWidget<SparklineWidget.Data> {
         view.findViewById<TextView>(R.id.sparkline_label).text = config.title(context, this)
         val value = data.value
         val valueText = if (value != null) formatValue(context, value) else context.getString(R.string.stats_empty_value)
-        view.findViewById<TextView>(R.id.sparkline_value).text = valueText
+        view.findViewById<TextView>(R.id.sparkline_value).text = styledValue(context, valueText)
 
         ViewCompat.setBackgroundTintList(
             view.findViewById(R.id.sparkline_icon_chip),
@@ -82,6 +92,38 @@ abstract class SparklineWidget : GBWidget<SparklineWidget.Data> {
     override fun onClick(view: View, config: WidgetConfig, timestamp: Int) {
         val tab = chartTab ?: return
         WidgetActions.openChart(view.context, config, this, tab, label, "", timestamp)
+    }
+
+    /**
+     * "95 bpm" as a big bold number with a small, muted, regular-weight unit after it, the way the
+     * metric rows read at a glance.
+     */
+    private fun styledValue(context: Context, text: String): CharSequence {
+        val space = text.indexOf(' ')
+        if (space <= 0) return text
+        val styled = SpannableString(text)
+        val muted = MaterialColors.getColor(
+            context, com.google.android.material.R.attr.colorOnSurfaceVariant, Color.GRAY
+        )
+        styled.setSpan(RelativeSizeSpan(UNIT_SIZE), space, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        styled.setSpan(ForegroundColorSpan(muted), space, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        styled.setSpan(FaceSpan(WatchLinkFonts.regular(context)), space, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return styled
+    }
+
+    /** Sets a typeface on a span of text; TypefaceSpan(Typeface) needs API 28. */
+    private class FaceSpan(private val face: Typeface) : MetricAffectingSpan() {
+        override fun updateDrawState(paint: TextPaint) {
+            paint.typeface = face
+        }
+
+        override fun updateMeasureState(paint: TextPaint) {
+            paint.typeface = face
+        }
+    }
+
+    private companion object {
+        const val UNIT_SIZE = 0.58f
     }
 
     /** [value] is null when there is nothing to show; [trend] is drawn left to right, oldest first. */

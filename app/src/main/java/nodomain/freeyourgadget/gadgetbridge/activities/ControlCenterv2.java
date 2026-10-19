@@ -443,6 +443,10 @@ public class ControlCenterv2 extends AppCompatActivity
         } else if (itemId == R.id.device_action_discover) {
             launchDiscoveryActivity();
             return false;
+        } else if (itemId == R.id.action_demo_mode) {
+            // WatchLink: sample data without a watch
+            nodomain.freeyourgadget.gadgetbridge.watchlink.DemoMode.showDialog(this);
+            return false;
         } else if (itemId == R.id.action_quit) {
             GBApplication.quit();
             return false;

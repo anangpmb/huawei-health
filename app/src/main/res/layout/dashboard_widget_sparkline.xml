@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceTitleMedium"
+            android:textAppearance="?attr/textAppearanceTitleSmall"
+            android:textColor="?attr/textColorPrimary"
             tools:text="Heart rate" />
 
         <TextView
@@ -49,9 +50,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:ellipsize="end"
+            android:fontFamily="@font/poppins_bold"
             android:maxLines="1"
-            android:textAppearance="?attr/textAppearanceBodyMedium"
-            android:textColor="?attr/colorOnSurfaceVariant"
+            android:textColor="?attr/textColorPrimary"
+            android:textSize="24sp"
             tools:text="95 bpm" />
     </LinearLayout>
 

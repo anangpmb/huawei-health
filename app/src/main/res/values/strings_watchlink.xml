@@ -4,6 +4,7 @@
 <resources>
     <!-- Soft look -->
     <string name="accent_color_sage" translatable="false">Sage</string>
+    <string name="accent_color_cocoa" translatable="false">Cocoa</string>
     <string name="widget_hr_trend" translatable="false">Heart rate trend</string>
     <string name="widget_steps_trend" translatable="false">Steps trend</string>
     <string name="widget_sleep_trend" translatable="false">Sleep trend</string>
@@ -12,6 +13,17 @@
     <string name="widget_trend_value_hours" translatable="false">%1$s hours</string>
     <string name="widget_trend_subtitle_today" translatable="false">Today</string>
     <string name="widget_trend_subtitle_week" translatable="false">Last 7 nights</string>
+
+    <!-- Demo mode (translatable; Indonesian in values-id) -->
+    <string name="watchlink_demo_title">Demo mode</string>
+    <string name="watchlink_demo_message_enable">Explore WatchLink with sample data, without a watch. A demo watch with steps, heart rate, sleep, stress and a few workouts with routes is added. Turn demo mode off here to remove it and all of its sample data.</string>
+    <string name="watchlink_demo_message_disable">Demo mode is on. Turning it off removes the demo watch and all of its sample data. Your real watch and its data are not touched.</string>
+    <string name="watchlink_demo_enable">Start demo</string>
+    <string name="watchlink_demo_disable">Turn off</string>
+    <string name="watchlink_demo_enabled">Demo mode is on: explore the Dashboard</string>
+    <string name="watchlink_demo_failed">Could not start demo mode</string>
+    <string name="watchlink_demo_device_name">WatchLink Demo</string>
+    <string name="watchlink_demo_no_upload">Demo workouts are not uploaded</string>
 
     <!-- Workout share (translatable; Indonesian in values-id) -->
     <string name="activity_detail_share_workout">Share workout</string>

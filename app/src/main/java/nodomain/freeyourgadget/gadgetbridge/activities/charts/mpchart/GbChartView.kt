@@ -562,7 +562,7 @@ class GbChartView @JvmOverloads constructor(
     private companion object {
         private val tapOutsideListeners = WeakHashMap<View, TapOutsideListener>()
 
-        const val BAR_CORNER_DP = 4f
+        const val BAR_CORNER_DP = 12f // WatchLink: pill-like bars, was 4
         const val PERIOD_X_PADDING = 0.5
         const val GRID_ALPHA = 0x1F // WatchLink: was 0x40
         const val GUIDE_WIDTH_DP = 1f

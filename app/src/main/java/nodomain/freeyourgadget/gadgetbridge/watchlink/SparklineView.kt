@@ -29,6 +29,8 @@ import androidx.annotation.ColorInt
 import androidx.core.graphics.ColorUtils
 import com.google.android.material.color.MaterialColors
 import nodomain.freeyourgadget.gadgetbridge.R
+import kotlin.math.abs
+import kotlin.math.min
 
 /**
  * A compact spline chart: a curve that is flat at each value (so it never overshoots the data),
@@ -63,8 +65,22 @@ class SparklineView @JvmOverloads constructor(
     @ColorInt
     private var lineColor = Color.GRAY
 
+    enum class Style {
+        /** A curve that is flat at each value. */
+        SMOOTH,
+
+        /** Flat runs joined by vertical steps with rounded corners, for a calm, blocky trend. */
+        ROUNDED_STEP,
+    }
+
+    var style: Style = Style.ROUNDED_STEP
+        set(value) {
+            field = value
+            invalidate()
+        }
+
     fun setData(values: FloatArray, @ColorInt color: Int) {
-        this.values = values
+        this.values = if (values.size > MAX_STEPS) resample(values, MAX_STEPS) else values
         lineColor = color
         linePaint.color = color
         dotPaint.color = color
@@ -92,27 +108,44 @@ class SparklineView @JvmOverloads constructor(
             return
         }
 
-        var min = values[0]
-        var max = values[0]
+        var low = values[0]
+        var high = values[0]
         for (value in values) {
-            if (value < min) min = value
-            if (value > max) max = value
+            if (value < low) low = value
+            if (value > high) high = value
         }
-        val range = max - min
+        val range = high - low
 
         fun xAt(index: Int) = if (count == 1) right else left + (right - left) * index / (count - 1)
         // A flat series sits in the middle rather than on the floor.
-        fun yAt(value: Float) = if (range <= 0f) (top + bottom) / 2f else bottom - (bottom - top) * (value - min) / range
+        fun yAt(value: Float) = if (range <= 0f) (top + bottom) / 2f else bottom - (bottom - top) * (value - low) / range
 
         linePath.reset()
         var previousX = xAt(0)
         var previousY = yAt(values[0])
         linePath.moveTo(previousX, previousY)
+        val cornerRadius = CORNER_RADIUS_DP * density
         for (i in 1 until count) {
             val x = xAt(i)
             val y = yAt(values[i])
             val midX = (previousX + x) / 2f
-            linePath.cubicTo(midX, previousY, midX, y, x, y)
+            if (style == Style.SMOOTH) {
+                linePath.cubicTo(midX, previousY, midX, y, x, y)
+            } else {
+                val dy = y - previousY
+                if (abs(dy) < 0.5f) {
+                    linePath.lineTo(x, y)
+                } else {
+                    // Run flat to the middle, turn down/up with a rounded corner, run flat again
+                    val r = min(cornerRadius, min(abs(dy) / 2f, (x - previousX) / 2f))
+                    val sign = if (dy > 0f) 1f else -1f
+                    linePath.lineTo(midX - r, previousY)
+                    linePath.quadTo(midX, previousY, midX, previousY + sign * r)
+                    linePath.lineTo(midX, y - sign * r)
+                    linePath.quadTo(midX, y, midX + r, y)
+                    linePath.lineTo(x, y)
+                }
+            }
             previousX = x
             previousY = y
         }
@@ -140,6 +173,19 @@ class SparklineView @JvmOverloads constructor(
     }
 
     private companion object {
+        /** More steps than this read as noise in a row this small, so longer series are averaged down. */
+        const val MAX_STEPS = 10
+        const val CORNER_RADIUS_DP = 6f
+
+        /** Averages [values] into [bins] equal slices, keeping their order. */
+        fun resample(values: FloatArray, bins: Int): FloatArray = FloatArray(bins) { bin ->
+            val from = bin * values.size / bins
+            val to = maxOf(from + 1, (bin + 1) * values.size / bins)
+            var sum = 0f
+            for (i in from until to) sum += values[i]
+            sum / (to - from)
+        }
+
         const val LINE_WIDTH_DP = 2.5f
         const val DOT_RADIUS_DP = 3.5f
         const val DOT_RING_RADIUS_DP = 5.5f

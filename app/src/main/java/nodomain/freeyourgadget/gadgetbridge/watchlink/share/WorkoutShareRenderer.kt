@@ -84,7 +84,7 @@ class WorkoutShareRenderer(
         style = Paint.Style.STROKE
         strokeCap = Paint.Cap.ROUND
         strokeWidth = 7f
-        color = ColorUtils.setAlphaComponent(FOREST, 70)
+        color = ColorUtils.setAlphaComponent(ACCENT, 70)
         pathEffect = DashPathEffect(floatArrayOf(1f, 18f), 0f)
     }
     private val text = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -477,7 +477,7 @@ class WorkoutShareRenderer(
         fill.color = Color.WHITE
         canvas.drawCircle(xs[0], ys[0], 14f * k, fill)
         border.strokeWidth = 5f * k
-        border.color = FOREST
+        border.color = ACCENT
         canvas.drawCircle(xs[0], ys[0], 14f * k, border)
     }
 
@@ -491,7 +491,7 @@ class WorkoutShareRenderer(
         fill.color = color
         canvas.drawCircle(x, y, 10f, fill)
         border.strokeWidth = 3f
-        border.color = FOREST
+        border.color = ACCENT
         canvas.drawCircle(x, y, 16f, border)
     }
 
@@ -502,12 +502,12 @@ class WorkoutShareRenderer(
         val halo = progress(t, RUN_END, RUN_END + 0.9f)
         if (halo in 0f..0.999f) {
             border.strokeWidth = 4f
-            border.color = ColorUtils.setAlphaComponent(FOREST, ((1f - halo) * 140).toInt())
+            border.color = ColorUtils.setAlphaComponent(ACCENT, ((1f - halo) * 140).toInt())
             canvas.drawCircle(x, y, 18f + 48f * easeOutCubic(halo), border)
         }
         val k = easeOutBack(progress(t, RUN_END, RUN_END + 0.45f))
         if (k <= 0f) return
-        fill.color = FOREST
+        fill.color = ACCENT
         canvas.drawCircle(x, y, 17f * k, fill)
         fill.color = Color.WHITE
         canvas.drawCircle(x, y, 6f * k, fill)
@@ -672,8 +672,9 @@ class WorkoutShareRenderer(
         private val PILL = RectF(72f, 1560f, 1008f, 1820f)
         private val SUMMARY_CARD = RectF(56f, 1060f, 1024f, 1840f)
 
-        private val FOREST = Color.rgb(0x2F, 0x5D, 0x46)
-        private val HEART = Color.rgb(0x3D, 0x86, 0xC6)
+        // WatchLink "Cocoa" look: deep cocoa for markers and accents, pink for heart rate
+        private val ACCENT = Color.rgb(0x4F, 0x34, 0x22)
+        private val HEART = Color.rgb(0xF0, 0x6A, 0x8C)
         private val PACE_SLOW = Color.rgb(0x8D, 0xB3, 0x7A)
         private val PACE_MID = Color.rgb(0xF1, 0xC6, 0x6E)
         private val PACE_FAST = Color.rgb(0xE3, 0x89, 0x7D)

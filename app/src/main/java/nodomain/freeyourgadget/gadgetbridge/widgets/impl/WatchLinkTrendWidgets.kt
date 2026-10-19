@@ -43,7 +43,7 @@ object HeartRateTrendWidget : SparklineWidget() {
     override val icon = R.drawable.ic_heartrate
     override val chartTab = "heartrate"
     override val lineColor = R.color.watchlink_line_heart
-    override val chipColor = R.color.watchlink_chip_blue
+    override val chipColor = R.color.watchlink_chip_neutral
 
     override fun isSupportedBy(device: GBDevice): Boolean =
         device.deviceCoordinator.supportsHeartRateMeasurement(device)
@@ -93,7 +93,7 @@ object StepsTrendWidget : SparklineWidget() {
     override val icon = R.drawable.ic_steps
     override val chartTab = "stepsweek"
     override val lineColor = R.color.watchlink_line_steps
-    override val chipColor = R.color.watchlink_chip_sage
+    override val chipColor = R.color.watchlink_chip_neutral
 
     override fun isSupportedBy(device: GBDevice): Boolean =
         device.deviceCoordinator.supportsStepCounter(device)
@@ -148,7 +148,7 @@ object SleepTrendWidget : SparklineWidget() {
     override val icon = R.drawable.ic_activity_sleep
     override val chartTab = "sleep"
     override val lineColor = R.color.watchlink_line_sleep
-    override val chipColor = R.color.watchlink_chip_yellow
+    override val chipColor = R.color.watchlink_chip_neutral
 
     override fun isSupportedBy(device: GBDevice): Boolean =
         device.deviceCoordinator.supportsSleepMeasurement(device)

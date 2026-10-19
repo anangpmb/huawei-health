@@ -27,12 +27,13 @@ import nodomain.freeyourgadget.gadgetbridge.R;
 
 public class GaugeDrawer {
     private static final Logger LOG = LoggerFactory.getLogger(GaugeDrawer.class);
-    protected @ColorInt int color_unknown = Color.argb(25, 128, 128, 128);
+    // WatchLink: warm grey track that works on light and dark cards, was argb(25, 128, 128, 128)
+    protected @ColorInt int color_unknown = Color.argb(46, 0x8C, 0x7F, 0x76);
 
     private static final float RING_DEFAULT_SIZE_DP = 150f;
     private static final float RING_DESIGN_SIZE = 220f;
     private static final float RING_RADIUS = 92f;
-    private static final float RING_STROKE = RING_DESIGN_SIZE / 15;
+    private static final float RING_STROKE = RING_DESIGN_SIZE / 11; // WatchLink: thicker arc, was / 15
     private static final float RING_MARKER_RADIUS = 10f;
     private static final float RING_MARKER_GAP = 3f;
     private static final float RING_SEGMENT_GAP = 0.01f;

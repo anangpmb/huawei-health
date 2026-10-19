@@ -65,21 +65,26 @@ data class ChartTheme(
                 remSleepColor = attrColor(R.attr.chart_rem_sleep),
                 awakeSleepColor = attrColor(R.attr.chart_awake_sleep),
                 notWornColor = attrColor(R.attr.chart_not_worn),
+                // WatchLink: in the light theme the tooltip is a deep cocoa bubble with white text
                 markerBackgroundColor = if (dark) {
                     DARK_MARKER_BACKGROUND
                 } else {
-                    MaterialColors.getColor(context, R.attr.stat_tile_bg, surface)
+                    ContextCompat.getColor(context, R.color.watchlink_marker_background)
                 },
-                markerBorderColor = MaterialColors.getColor(context, R.attr.stat_tile_border, Color.GRAY),
+                markerBorderColor = if (dark) {
+                    MaterialColors.getColor(context, R.attr.stat_tile_border, Color.GRAY)
+                } else {
+                    ContextCompat.getColor(context, R.color.watchlink_marker_background)
+                },
                 markerTitleColor = if (dark) {
                     DARK_MARKER_TITLE
                 } else {
-                    MaterialColors.getColor(context, com.google.android.material.R.attr.colorOnSurfaceVariant, Color.GRAY)
+                    Color.argb(200, 255, 255, 255)
                 },
                 markerValueColor = if (dark) {
                     DARK_MARKER_VALUE
                 } else {
-                    MaterialColors.getColor(context, R.attr.textColorPrimary, Color.BLACK)
+                    Color.WHITE
                 },
                 markerDotGapColor = GBApplication.getWindowBackgroundColor(context),
             )

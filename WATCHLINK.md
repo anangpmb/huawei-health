@@ -51,15 +51,17 @@ deleted, in [`WatchLinkScope.kt`](app/src/main/java/nodomain/freeyourgadget/gadg
 | Music control | Alarms (`ALARMS`) |
 | Watch faces | Navigation (`NAVIGATION`), watch apps (`WATCH_APPS`), find device (`FIND_DEVICE`) |
 
-## Design ("Soft" look)
+## Design ("Cocoa" look)
 
-Soft pastel, minimal, rounded, with spline charts. Applied from a few central points so upstream
-screens follow automatically:
+Warm off-white pages with white cards, deep cocoa as the action colour, soft accents (sage, orange,
+lavender, yellow, pink), bold Poppins numbers, rounded-step sparklines and pill bars. Applied from a few
+central points so upstream screens follow automatically. The earlier "Soft" look lives on as the Sage
+accent (Settings → User interface → Accent colour).
 
 | What | Where |
 |---|---|
 | Palette (cream page, warm-white cards, forest/sage accent, pastel data colours) | `app/src/mainline/res/values/colors_watchlink.xml` overrides upstream colours by name |
-| Accent **Sage** (default; others still selectable in Settings → User interface) | `styles_watchlink.xml`, `GBApplication.getAccentColorOverlay()` |
+| Accent **Cocoa** (default; Sage and the upstream accents still selectable in Settings → User interface) | `styles_watchlink.xml`, `GBApplication.getAccentColorOverlay()` |
 | Poppins type scale, corners (8/14/20/24/32dp), card fill | `ThemeOverlay.WatchLink` in `styles_watchlink.xml`, applied in `AbstractGBActivity.init()` |
 | Spline lines + soft gradient for every chart | `activities/charts/mpchart/ChartDataBuilder.kt`, axes/grid in `GbChartView.kt` |
 | Dashboard metric rows (icon chip, value, sparkline): heart rate, steps, sleep | `widgets/impl/SparklineWidget.kt`, `WatchLinkTrendWidgets.kt`, `watchlink/SparklineView.kt` |
@@ -67,6 +69,15 @@ screens follow automatically:
 
 Only the light theme gets the new palette; the dark themes keep upstream colours with the new type,
 shapes and charts. Poppins is SIL OFL 1.1 (`assets/licenses/Poppins-OFL.txt`, listed under Licenses).
+
+## Demo mode
+
+Side menu → **Demo mode** shows the app with sample data and no watch. It adds Gadgetbridge's simulated
+test device (limited to what a Huawei watch offers) plus seven workouts with GPS routes from the last two
+weeks, so the dashboard, charts, workouts and the share video can all be tried. The demo watch "connects"
+without Bluetooth and its sync button works. Demo workouts are never uploaded to Strava. Turning demo mode
+off deletes the demo watch and all of its sample data; a real watch is not touched.
+Code: `watchlink/DemoMode.kt`.
 
 ## Workout share (route video & card)
 

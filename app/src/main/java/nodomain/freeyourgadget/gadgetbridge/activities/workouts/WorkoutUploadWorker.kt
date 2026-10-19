@@ -74,6 +74,10 @@ class WorkoutUploadWorker(
             LOG.warn("WorkoutUploadWorker started without a device address, skipping")
             return Result.success()
         }
+        // WatchLink: sample workouts of demo mode never go to a real account
+        if (nodomain.freeyourgadget.gadgetbridge.watchlink.DemoMode.isDemoAddress(address)) {
+            return Result.success()
+        }
         val gbDevice = GBApplication.app().deviceManager.getDeviceByAddress(address)
         if (gbDevice == null) {
             LOG.warn("WorkoutUploadWorker: device {} not found", address)

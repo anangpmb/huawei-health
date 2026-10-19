@@ -105,12 +105,13 @@ Cakupan fitur WatchLink untuk Huawei Watch Fit 4 dan jam Huawei/Honor lain yang 
 
 | Fitur | Status | Catatan |
 |---|---|---|
-| Desain "Soft" (pastel, Poppins, kartu membulat) | Termasuk | Palet baru hanya untuk tema terang |
-| Semua line chart berbentuk spline | Termasuk | |
+| Desain "Cocoa" (abu hangat, aksen cokelat kakao, aksen pastel, angka tebal) | Termasuk | Palet baru hanya untuk tema terang; gaya "Soft" sebelumnya tetap ada sebagai aksen Sage |
+| **Mode demo** (data contoh tanpa jam) | Termasuk | Menu samping → Mode demo. Workout demo tidak pernah di-upload ke Strava; mematikannya menghapus semua data contoh |
+| Semua line chart berbentuk spline; baris dashboard memakai step-line membulat; bar berbentuk pill | Termasuk | |
 | Baris sparkline: detak jantung, langkah, tidur | Termasuk | Widget dashboard baru |
 | Widget gauge: langkah, jarak, waktu aktif, kalori, tidur, skor tidur, detak jantung, SpO2, stres, HRV, VO2 max | Termasuk | |
 | Cincin target (Goals) & jam aktivitas 24 jam (Today) | Termasuk | |
-| Aksen warna Sage (default) | Termasuk | Aksen lain tetap bisa dipilih |
+| Aksen warna Cocoa (default) | Termasuk | Sage dan aksen lain tetap bisa dipilih |
 
 ---
 

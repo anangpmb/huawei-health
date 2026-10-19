@@ -46,7 +46,7 @@
         <item name="device_card_bg">?attr/colorSurfaceContainerLow</item>
     </style>
 
-    <!-- Sage accent (WatchLink default, see GBApplication.PREF_ACCENT_COLOR_DEFAULT) -->
+    <!-- Sage accent (the earlier "Soft" look, still selectable) -->
     <style name="ThemeOverlay.App.Accent.Sage.Light" parent="">
         <item name="tab_pill">#2F5D46</item>
         <item name="tab_pill_on">#FFFFFF</item>
@@ -60,35 +60,50 @@
         <item name="subtab_pill_on">#A8D5B9</item>
     </style>
 
-    <!-- Type scale: regular weights use the family (so textStyle="bold" picks SemiBold), the
-         medium-weight roles use the Medium face directly so the weight holds on every API level. -->
+    <!-- Cocoa accent (WatchLink default, see GBApplication.PREF_ACCENT_COLOR_DEFAULT) -->
+    <style name="ThemeOverlay.App.Accent.Cocoa.Light" parent="">
+        <item name="tab_pill">#4F3422</item>
+        <item name="tab_pill_on">#FFFFFF</item>
+        <item name="subtab_pill">#EFE9E5</item>
+        <item name="subtab_pill_on">#4F3422</item>
+    </style>
+    <style name="ThemeOverlay.App.Accent.Cocoa.Dark" parent="">
+        <item name="tab_pill">#D9B8A0</item>
+        <item name="tab_pill_on">#2A1A10</item>
+        <item name="subtab_pill">#3A2A20</item>
+        <item name="subtab_pill_on">#E8CDB9</item>
+    </style>
+
+    <!-- Type scale (Cocoa look): display and headline roles are Bold for big numbers and page titles,
+         body roles use the family (textStyle="bold" picks Bold), title and label roles use fixed faces
+         so the weight holds on every API level. -->
     <style name="TextAppearance.WatchLink.DisplayLarge" parent="TextAppearance.Material3.DisplayLarge">
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="TextAppearance.WatchLink.DisplayMedium" parent="TextAppearance.Material3.DisplayMedium">
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="TextAppearance.WatchLink.DisplaySmall" parent="TextAppearance.Material3.DisplaySmall">
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="TextAppearance.WatchLink.HeadlineLarge" parent="TextAppearance.Material3.HeadlineLarge">
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="TextAppearance.WatchLink.HeadlineMedium" parent="TextAppearance.Material3.HeadlineMedium">
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="TextAppearance.WatchLink.HeadlineSmall" parent="TextAppearance.Material3.HeadlineSmall">
-        <item name="fontFamily">@font/poppins</item>
-        <item name="android:fontFamily">@font/poppins</item>
+        <item name="fontFamily">@font/poppins_bold</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
     </style>
     <style name="TextAppearance.WatchLink.TitleLarge" parent="TextAppearance.Material3.TitleLarge">
-        <item name="fontFamily">@font/poppins_medium</item>
-        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
     <style name="TextAppearance.WatchLink.TitleMedium" parent="TextAppearance.Material3.TitleMedium">
         <item name="fontFamily">@font/poppins_medium</item>

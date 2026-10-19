@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- WatchLink: Indonesian strings for the workout share feature -->
 <resources>
+    <string name="watchlink_demo_title">Mode demo</string>
+    <string name="watchlink_demo_message_enable">Jelajahi WatchLink dengan data contoh, tanpa jam. Jam demo berisi langkah, detak jantung, tidur, stres, dan beberapa workout dengan rute akan ditambahkan. Matikan mode demo di sini untuk menghapusnya beserta semua data contohnya.</string>
+    <string name="watchlink_demo_message_disable">Mode demo sedang aktif. Mematikannya akan menghapus jam demo beserta semua data contohnya. Jam asli dan datanya tidak tersentuh.</string>
+    <string name="watchlink_demo_enable">Mulai demo</string>
+    <string name="watchlink_demo_disable">Matikan</string>
+    <string name="watchlink_demo_enabled">Mode demo aktif: jelajahi Dashboard</string>
+    <string name="watchlink_demo_failed">Mode demo tidak bisa dimulai</string>
+    <string name="watchlink_demo_device_name">WatchLink Demo</string>
+    <string name="watchlink_demo_no_upload">Workout demo tidak di-upload</string>
+
     <string name="activity_detail_share_workout">Bagikan hasil</string>
     <string name="workout_share_title">Bagikan hasil</string>
     <string name="workout_share_preview_description">Pratinjau hasil workout yang dibagikan</string>

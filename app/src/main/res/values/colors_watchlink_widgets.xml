@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- WatchLink: colours of the sparkline metric rows on the dashboard. Pastel chip behind each icon,
-     and a deeper line colour of the same hue for the icon and the spline. -->
+<!-- WatchLink: colours of the sparkline metric rows on the dashboard. A warm neutral well behind each
+     icon and one accent per metric for the icon and its line. -->
 <resources>
-    <color name="watchlink_chip_blue" type="color">#E3EEF5</color>
-    <color name="watchlink_chip_pink" type="color">#F4E4EF</color>
-    <color name="watchlink_chip_yellow" type="color">#FBF1D6</color>
-    <color name="watchlink_chip_sage" type="color">#E5EDDF</color>
-    <color name="watchlink_chip_peach" type="color">#FBE8DA</color>
+    <color name="watchlink_chip_neutral" type="color">#F4F0ED</color>
 
-    <color name="watchlink_line_heart" type="color">#3D86C6</color>
-    <color name="watchlink_line_steps" type="color">#6E8F3C</color>
-    <color name="watchlink_line_sleep" type="color">#E2A93B</color>
+    <color name="watchlink_line_heart" type="color">#8FA75A</color>
+    <color name="watchlink_line_steps" type="color">#F29A3B</color>
+    <color name="watchlink_line_sleep" type="color">#8A6E5E</color>
+
+    <!-- Chart tooltip bubble -->
+    <color name="watchlink_marker_background" type="color">#4F3422</color>
 </resources>

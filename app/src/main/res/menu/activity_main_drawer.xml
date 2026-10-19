@@ -17,6 +17,10 @@
             android:title="@string/action_discover"
             android:iconTint="#7E7E7E"
             android:icon="@drawable/ic_add" />
+        <!-- WatchLink: explore the app with sample data, without a watch -->
+        <item android:id="@+id/action_demo_mode"
+            android:title="@string/watchlink_demo_title"
+            android:icon="@drawable/ic_auto_awesome" />
 
         <item android:id="@+id/action_quit"
             android:title="@string/action_quit"
